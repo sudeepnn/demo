@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bing Search</title>
+    <style>
+        #searchDiv {
+            width: 200px;
+            height: 50px;
+            background-color: #0078d7;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="searchDiv">Click to Search</div>
+
+    <script>
+        document.getElementById("searchDiv").addEventListener("click", function() {
+            // Array of search queries
+            const queries = ["programming", "AI", "web development", "machine learning", "data science", "javascript", "python", "html", "css", "front-end development","hello" ,"world","leet", "code","codeer bank", "ninja","kannada","india","maharashtra","hindi"];
+
+            // Function to open a new tab for each query with a delay
+            function openTabsWithDelay(queries, index) {
+                if (index < queries.length) {
+                    const searchUrl = `https://www.bing.com/search?q=${encodeURIComponent(queries[index])}`;
+                    window.open(searchUrl, "_blank");
+                    setTimeout(() => openTabsWithDelay(queries, index + 1), 1000); // Delay between opening tabs (1 second in this example)
+                }
+            }
+
+            openTabsWithDelay(queries, 0);
+        });
+    </script>
+</body>
+</html>
